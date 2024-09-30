@@ -9,9 +9,9 @@ def matrix_addition(m1: list[list[float]], m2: list[list[float]]) -> list[list[f
     Returns:
         list[list[float]]: The resulting matrix after element-wise addition.
     """
-    result = []
+    result: list[list[float]] = []
     for i in range(len(m1)):
-        row = []
+        row: list[float] = []
         for j in range(len(m1[0])):
             row.append(m1[i][j] + m2[i][j])
         result.append(row)
@@ -34,7 +34,7 @@ def matrix_multiplication(
     result = []
     m2_transposed = list(zip(*m2))
     for i in m1:
-        row = []
+        row: list[float] = []
         for j in m2_transposed:
             total = 0.0
             for x, y in zip(i, j):
@@ -57,7 +57,7 @@ def transpose_matrix(m: list[list[float]]) -> list[list[float]]:
     Returns:
         list[list[float]]: The transposed matrix.
     """
-    result = []
+    result: list[list[float]] = []
     for row in zip(*m):
         result.append(list(row))
     return result
