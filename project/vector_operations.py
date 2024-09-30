@@ -12,10 +12,12 @@ def coordinates_vectors(v1: list[float], v2: list[float]) -> float:
     Returns:
         float: The dot product of the two vectors.
     """
+    if len(v1) != len(v2):
+        raise ValueError("Vectors must be of the same length")
     result = 0.0
     for x, y in zip(v1, v2):
         result += x * y
-    return result
+    return int(result) if result.is_integer() else result
 
 
 def vector_length(v: list[float]) -> float:
@@ -31,7 +33,8 @@ def vector_length(v: list[float]) -> float:
     result = 0.0
     for x in v:
         result += x**2
-    return math.sqrt(result)
+    length = math.sqrt(result)
+    return int(length) if length.is_integer() else length
 
 
 def angle_between_vectors(v1: list[float], v2: list[float]) -> float:
@@ -51,4 +54,4 @@ def angle_between_vectors(v1: list[float], v2: list[float]) -> float:
     if len_v1 * len_v2 == 0:
         raise ValueError("One of the vectors has zero length")
     result = math.acos(coordinates / (len_v1 * len_v2))
-    return result
+    return int(result) if result.is_integer() else result

@@ -13,7 +13,7 @@ def matrix_addition(m1: list[list[float]], m2: list[list[float]]) -> list[list[f
     for i in range(len(m1)):
         row = []
         for j in range(len(m1[0])):
-            row.append(float(m1[i][j] + m2[i][j]))
+            row.append(m1[i][j] + m2[i][j])
         result.append(row)
     return result
 
@@ -39,7 +39,10 @@ def matrix_multiplication(
             total = 0.0
             for x, y in zip(i, j):
                 total += x * y
-            row.append(total)
+            if total.is_integer():  # check for float or int element
+                row.append(int(total))
+            else:
+                row.append(total)
         result.append(row)
     return result
 
