@@ -1,9 +1,5 @@
 import pytest
 import math
-import sys
-import os
-
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from project.vector_operations import (
     coordinates_vectors,
